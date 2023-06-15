@@ -78,3 +78,61 @@ model Message {
   senderId String @db.ObjectId
   sender User @relation(fields: [senderId], references: [id], onDelete: Cascade)
 }
+
+// A partir daqui os models relacionados a RPG
+
+model Race {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  description String?
+  image String?
+  uniqueSkillName String?
+  uniqueSkillDescription String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Class {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  description String?
+  image String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  //Cada classe vai ter um array de skills que ela pode usar
+  skillIds String[] @db.ObjectId
+  skills Skill[] @relation(fields: [skillIds], references: [id])
+
+  //Cada classe vai ter um array de spells que ela pode usar
+  spellIds String[] @db.ObjectId
+  spells Spell[] @relation(fields: [spellIds], references: [id])
+}
+
+model Skill {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  description String?
+  image String?
+  level Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  //Cada skill vai ter um array de classes que podem usar ela
+  classIds String[] @db.ObjectId
+  classes Class[] @relation(fields: [classIds], references: [id])
+}
+
+model Spell {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  description String?
+  image String?
+  level Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  //Cada spell vai ter um array de classes que podem usar ela
+  classIds String[] @db.ObjectId
+  classes Class[] @relation(fields: [classIds], references: [id])
+}

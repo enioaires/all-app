@@ -9,7 +9,14 @@ export default withAuth(
     const isAuth = await getToken({ req });
     const isLoginPage = pathname === "/";
 
-    const sensitiveRoutes = ["/users", "/conversations"];
+    const sensitiveRoutes = [
+      "/users",
+      "/conversations",
+      "/classes",
+      "/skills",
+      "/spells",
+      "/races",
+    ];
     const isAccessingSensitiveRoute = sensitiveRoutes.some((route) =>
       pathname.startsWith(route)
     );
@@ -40,5 +47,13 @@ export default withAuth(
 );
 
 export const config = {
-  matchter: ["/", "/users/:path*", "/conversations/:path*"],
+  matchter: [
+    "/",
+    "/users/:path*",
+    "/conversations/:path*",
+    "/classes/:path*",
+    "/races/:path*",
+    "/skills/:path*",
+    "/spells/:path*",
+  ],
 };
