@@ -27,7 +27,8 @@ const Body: FC<BodyProps> = ({ race }) => {
               width={355}
               alt="race"
               src={race.image}
-              className="rounded-sm"
+              className="rounded-sm cursor-pointer"
+              onClick={() => setModalIsOpen(true)}
             />
           )}
           <h2 className="mt-12 font-medium text-md text-gray-700">
