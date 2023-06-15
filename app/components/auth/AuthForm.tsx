@@ -36,6 +36,7 @@ const AuthForm: FC = () => {
       name: "",
       email: "",
       password: "",
+      role: "admin",
     },
   });
 
@@ -128,7 +129,7 @@ const AuthForm: FC = () => {
           </Button>
         </form>
 
-        <div className="mt-6">
+        {/* <div className="mt-6">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300" />
@@ -145,9 +146,9 @@ const AuthForm: FC = () => {
               onClick={() => socialAction("github")}
             />
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
+        {/* <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
           <div>
             {variant === "LOGIN" ? "Não tem uma conta?" : "Já tem uma conta?"}
           </div>
@@ -157,7 +158,7 @@ const AuthForm: FC = () => {
           >
             {variant === "LOGIN" ? "Cadastre-se" : "Entre"}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

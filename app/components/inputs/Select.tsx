@@ -8,6 +8,7 @@ interface SelectProps {
   value?: Record<string, any>;
   onChange: (value: Record<string, any>) => void;
   options: Record<string, any>[];
+  defaultValue?: Record<string, any>;
 }
 
 const Select: FC<SelectProps> = ({
@@ -16,6 +17,7 @@ const Select: FC<SelectProps> = ({
   value,
   onChange,
   options,
+  defaultValue,
 }) => {
   return (
     <div className="z-[100]">
@@ -26,10 +28,11 @@ const Select: FC<SelectProps> = ({
         <ReactSelect
           isDisabled={disabled}
           value={value}
+          //@ts-ignore
           onChange={onChange}
           options={options}
-          isMulti
           menuPortalTarget={document.body}
+          defaultValue={defaultValue}
           styles={{
             menuPortal: (base) => ({ ...base, zIndex: 9999 }),
           }}

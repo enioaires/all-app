@@ -9,9 +9,10 @@ import { useForm, FieldValues } from "react-hook-form";
 
 interface RaceListProps {
   items: Race[];
+  isAdmin: boolean;
 }
 
-const RaceList: FC<RaceListProps> = ({ items }) => {
+const RaceList: FC<RaceListProps> = ({ items, isAdmin }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredItems, setFilteredItems] = useState(items);
 
@@ -49,12 +50,14 @@ const RaceList: FC<RaceListProps> = ({ items }) => {
         <div className="px-5">
           <div className="flex justify-between items-center mb-4 pt-4">
             <div className="text-2xl font-bold text-neutral-800">Raças</div>
-            <div
-              onClick={() => setIsModalOpen(true)}
-              className="rounded-full p-2 bg-gray-100 text-gray-600 cursor-pointer hover:opacity-75 transition"
-            >
-              <Plus size={24} />
-            </div>
+            {isAdmin && (
+              <div
+                onClick={() => setIsModalOpen(true)}
+                className="rounded-full p-2 bg-gray-100 text-gray-600 cursor-pointer hover:opacity-75 transition"
+              >
+                <Plus size={24} />
+              </div>
+            )}
           </div>
           <Input
             label=""

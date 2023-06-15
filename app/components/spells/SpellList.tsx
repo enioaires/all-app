@@ -9,9 +9,10 @@ import Input from "../inputs/Input";
 
 interface SpellListProps {
   items: Spell[];
+  isAdmin: boolean;
 }
 
-const SpellList: FC<SpellListProps> = ({ items }) => {
+const SpellList: FC<SpellListProps> = ({ items, isAdmin }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredItems, setFilteredItems] = useState(items);
 
@@ -49,12 +50,14 @@ const SpellList: FC<SpellListProps> = ({ items }) => {
         <div className="px-5">
           <div className="flex justify-between items-center mb-4 pt-4">
             <div className="text-2xl font-bold text-neutral-800">Magias</div>
-            <div
-              onClick={() => setIsModalOpen(true)}
-              className="rounded-full p-2 bg-gray-100 text-gray-600 cursor-pointer hover:opacity-75 transition"
-            >
-              <Plus size={24} />
-            </div>
+            {isAdmin && (
+              <div
+                onClick={() => setIsModalOpen(true)}
+                className="rounded-full p-2 bg-gray-100 text-gray-600 cursor-pointer hover:opacity-75 transition"
+              >
+                <Plus size={24} />
+              </div>
+            )}
           </div>
           <Input
             label=""

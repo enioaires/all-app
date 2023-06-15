@@ -35,6 +35,7 @@ const SettingsModal: FC<SettingModalProps> = ({
     defaultValues: {
       name: currentUser?.name,
       image: currentUser?.image,
+      password: "",
     },
   });
 
@@ -50,7 +51,10 @@ const SettingsModal: FC<SettingModalProps> = ({
     setIsLoading(true);
 
     axios
-      .post("/api/settings", data)
+      .post("/api/settings", {
+        ...data,
+        password: data.password !== "" ? data.password : undefined,
+      })
       .then(() => {
         router.refresh();
         onClose();
@@ -81,6 +85,15 @@ const SettingsModal: FC<SettingModalProps> = ({
                 id="name"
                 errors={errors}
                 required
+                register={register}
+              />
+              <Input
+                disabled={isLoading}
+                label="Senha"
+                id="password"
+                type="password"
+                errors={errors}
+                required={false}
                 register={register}
               />
               <div>
