@@ -1,7 +1,9 @@
 "use client";
 import { FC } from "react";
 import Modal from "./Modal";
-import Image from "next/image";
+import InnerImageZoom from "react-inner-image-zoom";
+
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 
 interface ImageModalProps {
   isOpen?: boolean;
@@ -12,8 +14,8 @@ interface ImageModalProps {
 const ImageModal: FC<ImageModalProps> = ({ isOpen, onClose, src }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="w-80 h-80">
-        <Image src={src || ""} alt="image" fill className="object-cover" />
+      <div className="h-auto">
+        <InnerImageZoom src={src || ""} zoomSrc={src || ""} hideCloseButton />
       </div>
     </Modal>
   );

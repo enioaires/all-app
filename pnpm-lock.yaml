@@ -26,6 +26,9 @@ dependencies:
   '@types/react-dom':
     specifier: 18.2.4
     version: 18.2.4
+  '@types/react-inner-image-zoom':
+    specifier: ^3.0.0
+    version: 3.0.0
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.23)
@@ -92,6 +95,9 @@ dependencies:
   react-hot-toast:
     specifier: ^2.4.1
     version: 2.4.1(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
+  react-inner-image-zoom:
+    specifier: ^3.0.2
+    version: 3.0.2(prop-types@15.8.1)(react@18.2.0)
   react-select:
     specifier: ^5.7.3
     version: 5.7.3(@types/react@18.2.6)(react-dom@18.2.0)(react@18.2.0)
@@ -634,6 +640,12 @@ packages:
 
   /@types/react-dom@18.2.4:
     resolution: {integrity: sha512-G2mHoTMTL4yoydITgOGwWdWMVd8sNgyEP85xVmMKAPUBwQWm9wBPQUmvbeF4V3WBY1P7mmL4BkjQ0SqUpf1snw==}
+    dependencies:
+      '@types/react': 18.2.6
+    dev: false
+
+  /@types/react-inner-image-zoom@3.0.0:
+    resolution: {integrity: sha512-etD8dNKfLVXHwoRqffIgTdi7uFizhlVQgGMC51bNNEN20rCJ/6NP/ce9vSjRBIRC5wDPrXVNAsLqB2Fb7L8+Xw==}
     dependencies:
       '@types/react': 18.2.6
     dev: false
@@ -3154,6 +3166,16 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
       - csstype
+    dev: false
+
+  /react-inner-image-zoom@3.0.2(prop-types@15.8.1)(react@18.2.0):
+    resolution: {integrity: sha512-ICjyz0wdKmLufuQkUyg4iyP0yIF2elDeHjY1+S1pOKPggrW0g9V2SCmOSA39405ZX8GVVaxadmUYWwz3OF4V5A==}
+    peerDependencies:
+      prop-types: '>=15.6.2'
+      react: '>=16.8.0'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
   /react-is@16.13.1:

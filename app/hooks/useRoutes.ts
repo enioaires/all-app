@@ -10,6 +10,8 @@ import {
   Users,
   Flame,
   Swords,
+  BookMarked,
+  Bluetooth,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 
@@ -30,6 +32,18 @@ const useRoutes = () => {
       //   href: "/conversations",
       //   icon: MessageSquare,
       //   active: pathname === "/conversations" || !!conversationId,
+      // },
+      // {
+      //   label: "Contos",
+      //   href: "/lores",
+      //   icon: BookMarked,
+      //   active: pathname === "/lores",
+      // },
+      // {
+      //   label: "Personagens",
+      //   href: "/npcs",
+      //   icon: Bluetooth,
+      //   active: pathname === "/npcs",
       // },
       {
         label: "Classes",

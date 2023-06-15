@@ -37,13 +37,29 @@ const NewClassModal: FC<NewClassModalProps> = ({
       name: currentClass?.name || "",
       description: currentClass?.description || "",
       image: currentClass?.image || "",
+      image2: currentClass?.image2 || "",
+      image3: currentClass?.image3 || "",
     },
   });
 
   const image = watch("image");
+  const image2 = watch("image2");
+  const image3 = watch("image3");
 
-  const handleUpload = (result: any) => {
+  const handleUploadImage = (result: any) => {
     setValue("image", result?.info?.secure_url, {
+      shouldValidate: true,
+    });
+  };
+
+  const handleUploadImage2 = (result: any) => {
+    setValue("image2", result?.info?.secure_url, {
+      shouldValidate: true,
+    });
+  };
+
+  const handleUploadImage3 = (result: any) => {
+    setValue("image3", result?.info?.secure_url, {
       shouldValidate: true,
     });
   };
@@ -52,6 +68,8 @@ const NewClassModal: FC<NewClassModalProps> = ({
     setValue("name", "");
     setValue("description", "");
     setValue("image", "");
+    setValue("image2", "");
+    setValue("image3", "");
   };
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -129,10 +147,10 @@ const NewClassModal: FC<NewClassModalProps> = ({
               <div className="flex flex-col items-center">
                 <CldUploadButton
                   options={{ maxFiles: 1 }}
-                  onUpload={handleUpload}
+                  onUpload={handleUploadImage}
                   uploadPreset="ee2vxejr"
                 >
-                  <Button disabled={isLoading} variant={"ghost"}>
+                  <Button disabled={isLoading} variant={"ghost"} type="button">
                     Definir imagem
                   </Button>
                 </CldUploadButton>
