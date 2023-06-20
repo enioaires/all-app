@@ -50,8 +50,8 @@ const UserBox: FC<UserBoxProps> = ({ data, isAdmin }) => {
       {isLoading && <LoadingModal />}
       <div className="inline-flex items-center justify-between w-full gap-2">
         <div
-          onClick={handleClick}
-          className="w-full relative flex items-center space-x-3 bg-white p-2 hover:bg-gray-100 rounded-lg transition cursor-pointer"
+          onClick={() => {}}
+          className="w-full relative flex items-center space-x-3 bg-white p-2 hover:bg-gray-100 rounded-lg transition cursor-default"
         >
           <Avatar user={data} />
           <div className="flex-1 min-w-0">

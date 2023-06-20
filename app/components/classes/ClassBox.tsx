@@ -2,6 +2,8 @@ import { Class } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { FC, useCallback, useState } from "react";
 import LoadingModal from "../modals/LoadingModal";
+import { Trash } from "lucide-react";
+import axios from "axios";
 
 interface ClassBoxProps {
   data: Class;
@@ -15,8 +17,14 @@ const ClassBox: FC<ClassBoxProps> = ({ data }) => {
     router.push(`classes/${data.id}`);
   }, [data.id, router]);
 
+  const handleDelete = useCallback(() => {
+    axios.post("api/classes/delete", { id: data.id }).then(() => {
+      router.refresh();
+    });
+  }, [data.id, router]);
+
   return (
-    <>
+    <div className="flex items-center justify-between gap-2">
       {isLoading && <LoadingModal />}
       <div
         onClick={handleClick}
@@ -30,7 +38,13 @@ const ClassBox: FC<ClassBoxProps> = ({ data }) => {
           </div>
         </div>
       </div>
-    </>
+      <div
+        className="rounded-full text-red-400 bg-red-100 cursor-pointer p-2 hover:bg-red-200 hover:text-red-500"
+        onClick={handleDelete}
+      >
+        <Trash size={16} />
+      </div>
+    </div>
   );
 };
 

@@ -19,7 +19,6 @@ const Body: FC<BodyProps> = ({ race }) => {
         src={race?.image}
       />
       <div className="flex-1 overflow-y-auto p-8 gap-10 flex flex-col">
-        <h2 className="font-medium text-xl text-gray-900">Detalhes:</h2>
         <div className="inline-flex gap-8">
           {race?.image && (
             <Image
